@@ -12,7 +12,7 @@ import RequestsPanel from "./components/RequestsPanel";
 import Notification from "./components/Notification";
 import UpdateVehicleForm from "./components/UpdateVehicleForm";
 
-const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const API = import.meta.env.VITE_API_URL || "https://arac-tahsis-uygulamasi-1.onrender.com";
 
 export default function App() {
   const [vehicles, setVehicles] = useState([]);
