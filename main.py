@@ -196,6 +196,13 @@ arac_listesi = init_arac_listesi()
 def get_araclar(db = Depends(get_db)):
     return db.query(AracDB).all()
 
+@app.get("/araclar/{plaka}")
+def get_arac_by_plaka(plaka: str, db: Session = Depends(get_db)):
+    arac = db.query(AracDB).filter(AracDB.plaka == plaka).first()
+    if not arac:
+        raise HTTPException(status_code=404, detail="Araç bulunamadı")
+    return arac
+
 @app.get("/istekler")
 def get_istekler(db: Session = Depends(get_db)):
     return db.query(IstekDB).all()
